@@ -1,0 +1,109 @@
+{{#menu-panel visible=visible onVisible="showedSearch" onHidden="showedSearch" maxWidth="800px"}}
+  {{plugin-outlet "above-search"}}
+  {{search-text-field value=searchService.term id="search-term"}}
+
+  <div class="search-context">
+    {{#if searchService.searchContext}}
+      <label>
+        {{input type="checkbox" name="searchContext" checked=searchService.searchContextEnabled}} {{searchContextDescription}}
+      </label>
+    {{/if}}
+    <a href class="show-help" {{action "showSearchHelp" bubbles=false}}>{{i18n "show_help"}}</a>
+    <div class='clearfix'></div>
+  </div>
+  {{#if loading}}
+    <div class="preloader"></div>
+  {{else}}
+    <div class="results">
+
+      <div id="TopGamesSearch">
+
+          <h4>Top Games</h4>
+
+          <ul class="list-material">
+            <li class="topgames">
+
+              <a href="#" id="topresult0" class="visible">
+              </a>
+            </li>
+            <li class="topgames">
+
+              <a href="#" id="topresult1" class="visible">
+              </a>
+            </li>
+            <li class="topgames">
+
+              <a href="#" id="topresult2" class="visible">
+              </a>
+            </li>
+            <li class="topgames">
+
+              <a href="#" id="topresult3" class="visible">
+              </a>
+            </li>
+            <li class="topgames">
+
+              <a href="#" id="topresult4" class="visible">
+              </a>
+            </li>
+          </ul>
+</div>
+
+    {{#if noResults}}
+      <div class="no-results">
+        {{i18n "search.no_results"}}
+      </div>
+    {{else}}
+
+      {{#each content.resultTypes as |resultType|}}
+        <ul>
+          <li>{{resultType.name}}</li>
+          {{component resultType.componentName results=resultType.results term=searchService.term}}
+        </ul>
+        <div class="no-results">
+          {{#if resultType.moreUrl}}
+            <a href={{resultType.moreUrl}} class="filter">{{i18n "show_more"}} {{fa-icon "chevron-down"}}</a>
+          {{/if}}
+          {{#if resultType.more}}
+            <a href class="filter filter-type" {{action "moreOfType" resultType.type bubbles=false}}>{{i18n "show_more"}} {{fa-icon "chevron-down"}}</a>
+          {{/if}}
+        </div>
+      {{/each}}
+      <div id="LoadGB" class="hidden">
+        <p>Searching Giant Bomb</p>
+      </div>
+      <div id="ResultsGames" class="hidden">
+                <h4>Start a new topic</h4>
+                <ul>
+                  <ul>
+                    <li>
+                      <a href="#" id="gameresult0" class="search-link visible"></a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="#" id="gameresult1" class="search-link visible"></a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="#" id="gameresult2" class="search-link visible"></a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="#" id="gameresult3" class="search-link visible"></a>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <a href="#" id="gameresult4" class="search-link visible"></a>
+                    </li>
+                  </ul>
+                </ul>
+      </div>
+    {{/if}}
+    </div>
+  {{/if}}
+
+{{/menu-panel}}

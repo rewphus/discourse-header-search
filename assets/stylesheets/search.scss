@@ -23,11 +23,15 @@
 
 input#search-term{
     border: 0px solid #e9e9e9 !important;
-    background-color: rgba(255,255,255,0) !important;
+    background-color: rgba(255,255,255,.4) !important;
     box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.3);
     color: white;
     font-size: 1.3em;
-    padding-left: 30px;
+    padding-left: 10px;
+    border-radius: 0px;
+    height: 40px;
+    margin-top: 4px;
+    margin-bottom: 12px
 }
 
 #search-dropdown > i{
@@ -47,6 +51,7 @@ input#search-term::-webkit-input-placeholder{
     color: rgba(255,255,255,0.4);
     padding-top:3px;
 }
+
 
 .results{
     background-color: white;
@@ -74,10 +79,298 @@ input#search-term::-webkit-input-placeholder{
 }
 
 .d-dropdown#search-dropdown {
-     width:430px !important;
+     width:830px !important;
      padding: 0px;
 }
 
 .d-header .icons {
     float: right;
+}
+
+#search-button > i{
+  padding-left:90%;
+}
+
+
+
+.search-context .clearfix{
+  display:flex;
+}
+
+.search-menu .search-context .show-help {
+    float: right;
+    position: relative;
+    top: -30px;
+    // right:-100px;
+    color: rgba(0,0,0,.25);
+}
+
+
+.drop-down-visible .d-header .icons .active .icon:after{
+  border-top:0px !important;
+}
+
+
+.search-menu .menu-panel{
+  top: -30% !important;
+  right: 28%;
+  border: 0px !important;
+  background-color: #0a67a3 !important;
+  box-shadow: 0 0px 0px !important;
+
+}
+
+.search-menu .panel-body{
+  overflow: hidden;
+
+}
+
+.panel-body-contents .search-context label {
+padding-right: 10px;
+}
+
+@media screen and (max-width: 1220px) {
+  .search-menu .menu-panel{
+    top: 0% !important;
+    width: 100% !important;
+    right: -14px !important;
+  }
+}
+
+@media screen and (min-width: 630px) {
+  #search-button{
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-right: 5px;
+    cursor: text;
+  }
+}
+
+#LoadGB p {
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+
+    -webkit-animation: fadein 2s infinite; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s infinite; /* Firefox < 16 */
+        -ms-animation: fadein 2s infinite; /* Internet Explorer */
+         -o-animation: fadein 2s infinite; /* Opera < 12.1 */
+            animation: fadein 2s infinite;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.d-header .wrap{
+  max-width:999999px;
+}
+
+#ResultsGames{
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  width: 100%;
+}
+
+#ResultsGames h4{
+  padding-left: 10px;
+}
+
+#ResultsGames a.search-link{
+  height: 64px;
+  padding: 5px;
+  padding-bottom: 10px;
+}
+
+#LoadGB{
+  position: absolute;
+  top: 60px;
+  left: 200px;
+  height: 500px;
+  width: 100%;
+}
+
+.results ul {
+  width:70%;
+}
+
+.results{
+  min-height: 500px !important;
+}
+
+.menu-panel #ResultsGames ul{
+  overflow: hidden;
+}
+
+.topgames a{
+  height: 70px;
+  padding: 5px;
+}
+
+#TopGamesSearch h4{
+  padding:10px;
+  padding-top:20px;
+  padding-left:5px;
+}
+
+#Existing h4{
+  padding-top: 5px;
+  padding-left: 5px
+}
+
+
+
+/*   PRELOADER   */
+
+.preloader {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  padding-top: 8px;
+  width: 100%;
+  background-color: #159756;
+  -webkit-animation: preloader-background linear 3.5s infinite;
+          animation: preloader-background linear 3.5s infinite;
+}
+.preloader::before, .preloader::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 0;
+  height: 8px;
+  background: #afa;
+  -webkit-animation: preloader-front linear 3.5s infinite;
+          animation: preloader-front linear 3.5s infinite;
+  content: '';
+}
+.preloader::before {
+  right: 50%;
+}
+.preloader::after {
+  left: 50%;
+}
+
+@-webkit-keyframes preloader-background {
+  0%, 24.9% {
+    background-color: #f6f6f6;
+  }
+  25%, 49.9% {
+    background-color: #FF8E00;
+  }
+  50%, 74.9% {
+    background-color: #f6f6f6;
+  }
+  75%, 100% {
+    background-color: #FF8E00;
+  }
+}
+
+@keyframes preloader-background {
+  0%, 24.9% {
+    background-color: #f6f6f6;
+  }
+  25%, 49.9% {
+    background-color: #FF8E00;
+  }
+  50%, 74.9% {
+    background-color: #f6f6f6;
+  }
+  75%, 100% {
+    background-color: #FF8E00;
+  }
+}
+@-webkit-keyframes preloader-front {
+  0% {
+    width: 0;
+    background-color: #FF8E00;
+  }
+  24.9% {
+    width: 50%;
+    background-color: #FF8E00;
+  }
+  25% {
+    width: 0;
+    background-color: #f6f6f6;
+  }
+  49.9% {
+    width: 50%;
+    background-color: #f6f6f6;
+  }
+  50% {
+    width: 0;
+    background-color: #FF8E00;
+  }
+  74.9% {
+    width: 50%;
+    background-color: #FF8E00;
+  }
+  75% {
+    width: 0%;
+    background-color: #f6f6f6;
+  }
+  100% {
+    width: 50%;
+    background-color: #f6f6f6;
+  }
+}
+@keyframes preloader-front {
+  0% {
+    width: 0;
+    background-color: #FF8E00;
+  }
+  24.9% {
+    width: 50%;
+    background-color: #FF8E00;
+  }
+  25% {
+    width: 0;
+    background-color: #f6f6f6;
+  }
+  49.9% {
+    width: 50%;
+    background-color: #f6f6f6;
+  }
+  50% {
+    width: 0;
+    background-color: #FF8E00;
+  }
+  74.9% {
+    width: 50%;
+    background-color: #FF8E00;
+  }
+  75% {
+    width: 0%;
+    background-color: #f6f6f6;
+  }
+  100% {
+    width: 50%;
+    background-color: #f6f6f6;
+  }
 }
